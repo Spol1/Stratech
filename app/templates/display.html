@@ -1,0 +1,61 @@
+{% block head %}
+
+<title>Update</title>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="content">
+    <h1>Update</h1>
+    {% if tasks|length < 1 %}
+        <h4> No tasks yet. Add some!</h4>
+    {% else %}
+        <table>
+        <tr>
+            <th>ID</th>
+            <th>Team</th>
+            <th>year</th>
+            <th>performance</th>
+            <th>size</th>
+            <th>reliability</th>
+            <th>price</th>
+            <th>promo_budget</th>
+            <th>sales_budget</th>
+            <th>unit sales forecast</th>
+            <th>production order</th>
+            <th>debt</th>
+            <th>bond_issue</th>
+            <th>bond_retire</th>
+            <th>awareness</th>
+            <th>accessibility</th>
+            <th>favourability</th>
+            <th>units_sold</th>
+            <th>revenue</th>
+            <th>market_share</th>
+            <th>inventory</th>
+            <th>stock_out</th>
+            <th>cash</th>
+            <th>bond_</th>
+            <th>plant_capacity</th>
+            <th>plant_capacity</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{task.id}}</td>
+                <td>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{task.id}}">Add/Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+    <form action = "/update/{{task.id}}" method="POST">
+        <input type="text" name="ID_Input" id="ID_Input">
+        <input type="submit" value="Add">
+    </form>
+
+
+{% endblock %}
